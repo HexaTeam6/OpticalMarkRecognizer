@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import utlis
 
-webCamFeed = False
+webCamFeed = True
 pathImage = "2.jpg" # jika menggunakan gambar
 cap = cv2.VideoCapture(0) # jika menggunakkan kamera
 cap.set(10,160)
@@ -87,7 +87,7 @@ while True:
 
             # DISPLAYING ANSWERS
             utlis.showAnswers(imgWarpColored,myIndex,grading,ans) # gambar indikator jawaban pada lembar jawaban yg sudah di wrap
-            # imgGrid = utlis.drawGrid(imgWarpColored) # DRAW GRID
+            imgGrid = utlis.drawGrid(imgWarpColored) # DRAW GRID
             imgRawDrawings = np.zeros_like(imgWarpColored) # buat gambar dengan ukuran yang sama dengan gambar hasil wrap
             utlis.showAnswers(imgRawDrawings, myIndex, grading, ans) # gambar indikator jawaban pada gambar yang baru di buat
             invMatrix = cv2.getPerspectiveTransform(pts2, pts1) # lalu dapatkan inverse matrix
